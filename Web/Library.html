@@ -1,0 +1,72 @@
+﻿<script ng-section="secondaryHeader" type="text/ng-template">
+    <select>
+        <option value="">All</option>
+        <option ng-repeat="retentionPolicy in retentionPolicies" value="retentionPolicy.RetentionPolicyID">{{retentionPolicy.RetentionPolicyName}}</option>
+    </select>
+    <select>
+        <option value="">All</option>
+        <option ng-repeat="mediaCategory in mediaCategories" value="mediaCategory.ID">{{mediaCategory.CategoryName}}</option>
+    </select>
+    <select>
+        <option value="">All</option>
+        <option ng-repeat="team in teams" value="team.ID">{{team.TeamName}}</option>
+    </select>
+</script>
+<div id="page-wrapper">
+    <div id="page">
+        <div ng-show="criticalError == null">
+            <ul id="results" ng-show="records.length">
+                <li ng-repeat="record in records">
+                    <div>
+                        <img src="Images/thumbnail.jpg" />
+                        <span>{{record.Duration}}</span>
+                    </div>
+                    <div>
+                        <span><a href="Login.html">{{record.IncidentId}}</a></span>
+                        <span>{{record.Notes}} sdcs dcs dc sdc sd c sd csd</span>
+                        <ul>
+                            <li>
+                                <span>Type:</span>
+                                <span>{{record.AssetType}}</span>
+                            </li>
+                            <li>
+                                <span>Recorded Date:</span>
+                                <span>{{record.RecordedDate}}</span>
+                            </li>
+                            <li>
+                                <span>Source Device:</span>
+                                <span>{{record.Source}}</span>
+                            </li>
+                            <li>
+                                <span>User:</span>
+                                <span>{{record.UserId}}</span>
+                            </li>
+                            <li>
+                                <span>Location:</span>
+                                <span>{{record.Location}}</span>
+                            </li>
+                            <li>
+                                <span>Retention Policy:</span>
+                                <span>{{record.RetentionPolicy}}</span>
+                            </li>
+                            <li>
+                                <span>Media Category:</span>
+                                <span>{{record.MediaCategory}}</span>
+                            </li>
+                            <li>
+                                <span>Team:</span>
+                                <span>{{record.Team}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div ng-show="records.length"><button ng-hide="performingSearch" ng-click="showMore()" class="red">Show 10 more</button><span ng-show="performingSearch" class="spinner"></span></div>
+            <div ng-hide="records.length > 0" class="message-information">No results</div>
+        </div>
+        <div ng-hide="criticalError == null" class="message-error">
+            <div>{{criticalError.message}} [<span ng-click="criticalError.showDetails = !criticalError.showDetails"><span ng-hide="criticalError.showDetails">View details</span><span ng-show="criticalError.showDetails">Hide details</span></span>]</div>
+            <div ng-show="criticalError.showDetails">{{criticalError.details.status}} - {{criticalError.details.statusText}}</div>
+        </div>
+    </div>
+</div>

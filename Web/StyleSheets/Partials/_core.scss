@@ -1,0 +1,203 @@
+﻿@import "_variables.scss";
+
+// Styles
+
+@mixin core-styles($text-direction-start, $text-direction-end) {
+    font-size: 62.5%;
+    
+    body {
+        font-family: Montserrat, sans-serif;
+        font-size: 1.4rem;
+        margin: 0;
+        min-height: $viewport-width-breakpoint-small;
+        min-width: $viewport-width-breakpoint-small;
+
+        label {
+            text-transform: uppercase;
+        }
+
+        input[type=text], input[type=password] {
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            padding: 10px;
+        }
+
+        input[type=checkbox] {
+            $checkbox-size: 20px;
+            $checkbox-margin: calc(#{$checkbox-size} / 4);
+
+            display: none;
+        
+            & + label:not(.prefix)::before, & + label.prefix::after {
+                border: calc(#{$checkbox-size} / 10) solid #000000;
+                border-radius: calc(#{$checkbox-size} / 10);
+                content: "";
+                cursor: pointer;
+                display: inline-block;
+                height: $checkbox-size;
+                width: $checkbox-size;
+                vertical-align: middle;
+            }
+
+            & + label:not(.prefix)::before {
+                margin-#{$text-direction-end}: $checkbox-margin;
+            }
+
+            & + label:not(.prefix)::after {
+                margin-#{$text-direction-start}: $checkbox-margin;
+            }
+        
+            &:checked + label:not(.prefix)::before, &:checked + label.prefix::after {
+                background-image: url("../Images/checkbox-black.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: calc(#{$checkbox-size} / 1.5);
+            }
+
+            &.white + label:not(.prefix)::before, &.white + label.prefix::after {
+                border-color: #ffffff;
+            }
+
+            &.white:checked + label:not(.prefix)::before, &.white:checked + label.prefix::after {
+                background-image: url("../Images/checkbox-white.svg");
+            }
+        }
+
+        input[type=radio] {
+            $radio-size: 20px;
+            $radio-margin: calc(#{$radio-size} / 4);
+
+            display: none;
+
+            & + label:not(.prefix)::before, & + label.prefix::after {
+                border: calc(#{$radio-size} / 10) solid #000000;
+                border-radius: $radio-size;
+                content: "";
+                cursor: pointer;
+                display: inline-block;
+                height: $radio-size;
+                width: $radio-size;
+                vertical-align: middle;
+            }
+
+            & + label:not(.prefix)::before {
+                margin-#{$text-direction-end}: $radio-margin;
+            }
+
+            & + label:not(.prefix)::after {
+                margin-#{$text-direction-start}: $radio-margin;
+            }
+
+            &:checked + label:not(.prefix)::before, &:checked + label.prefix::after {
+                background-image: url("../Images/radio-black.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: calc(#{$radio-size} / 2);
+            }
+
+            &.white + label:not(.prefix)::before, &.white + label.prefix::after {
+                border-color: #ffffff;
+            }
+
+            &.white:checked + label:not(.prefix)::before, &.white:checked + label.prefix::after {
+                background-image: url("../Images/radio-white.svg");
+            }
+        }
+
+        button {
+            background-color: #000000;
+            border: none;
+            border-radius: 2px;
+            color: #ffffff;
+            cursor: pointer;
+            font-family: inherit;
+            outline: none;
+            padding: 10px;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: scale-color(#000000, $lightness: 20%);
+            }
+
+            &.red {
+                background-color: $reveal-red;
+
+                &:hover {
+                    background-color: scale-color($reveal-red, $lightness: 20%);
+                }
+            }
+        }
+
+        .message-information, message-error {
+            background-color: scale-color($reveal-red, $lightness: 50%);
+
+            &::before {
+                background-color: $reveal-red;
+                background-image: url("../../Images/message-icon-error.svg");
+                background-position: top;
+                content: "";
+                display: inline-block;
+                height: 100%;
+                min-height: 50px;
+                width: 50px;
+            }
+        }
+
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+ 
+        .spinner {
+            animation: spinner 1s ease infinite;
+            border-color: #000000 transparent;
+            border-radius: 50%;
+            border-style: solid;
+            border-width: 3px;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+        }
+
+        /*input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox] + label {
+            background-color: scale-color(#ffffff, $lightness: -50%);
+            border: $checkbox-border-width solid scale-color(#ffffff, $lightness: 0%);
+            border-radius: calc(#{$checkbox-width} / 2);
+            cursor: pointer;
+            display: inline-block;
+            height: calc(#{$checkbox-width} / 2);
+            width: $checkbox-width;
+            transition: all 0.5s;
+            vertical-align: middle;
+        }
+
+        input[type=checkbox] + label:after {
+            background-color: scale-color(#ffffff, $lightness: 0%);
+            border-radius: calc(#{$checkbox-width} / 2);
+            content: "";
+            display: inline-block;
+            height: calc((#{$checkbox-width} / 2) - (#{$checkbox-padding-width} * 2));
+            #{$text-direction-start}: 0;
+            margin: $checkbox-padding-width;
+            position: relative;
+            width: calc((#{$checkbox-width} / 2) - (#{$checkbox-padding-width} * 2));
+            transition: all 0.5s;
+        }
+
+        input[type=checkbox]:checked + label {
+            background-color: $reveal-red;
+            border-color: #ffffff;
+        }
+
+        input[type=checkbox]:checked + label:after {
+            background-color: #ffffff;
+            #{$text-direction-start}: calc(#{$checkbox-width} / 2);
+        }*/
+    }
+}

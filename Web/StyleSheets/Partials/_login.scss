@@ -1,0 +1,82 @@
+﻿@import "_variables.scss";
+
+// Styles
+
+@mixin login-styles($text-direction-start, $text-direction-end) {
+    #login-screen-wrapper {
+        background-color: scale-color($reveal-red, $lightness: -10%);
+        background-image: url("../Images/ghost.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 120%;
+        color: #ffffff;
+        height: 100vh;
+        min-height: 100vh;
+
+        #login-wrapper {
+            #{$text-direction-start}: 50%;
+            padding: 20px;
+            position: relative;
+            top: 50%;
+
+            $translate-x-multiplier: 1;
+
+            @if $text-direction-start == "right" {
+                $translate-x-multiplier: -1;
+            }
+
+            transform: translate(calc(-50% * #{$translate-x-multiplier}), -50%);
+            -ms-transform: translate(calc(-50% * #{$translate-x-multiplier}), -50%);
+            -webkit-transform: translate(calc(-50% * #{$translate-x-multiplier}), -50%);
+            max-width: 300px;
+
+            #logo-wrapper {
+                text-align: center;
+
+                img {
+                    width: 250px;
+                }
+            }
+
+            label {
+                //color: rgba(#ffffff, 0.75);
+                font-size: 1.2rem;
+            } 
+
+            #username-label, #password-label {
+                display: block;
+                margin-top: 20px;
+            }
+
+            #username, #password {
+                background-color: transparent;
+                border-bottom: 1px solid rgba(#ffffff, 1);
+                border-radius: 0;
+                color: #ffffff;
+                display: block;
+                margin-bottom: 20px;
+                padding: 10px 0;
+                width: 100%;
+            }
+
+            #login-button-wrapper {
+                display: table-row;
+
+                label, button {
+                    display: table-cell;
+                }
+
+                label {
+                    width: 100%;
+                }
+            }
+
+            #copyright {
+                color: rgba(#ffffff, 0.75);
+                font-size: 1rem;
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+    }
+}

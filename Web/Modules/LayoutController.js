@@ -1,0 +1,1 @@
+﻿app.controller("layoutController", function ($scope, $http) { });

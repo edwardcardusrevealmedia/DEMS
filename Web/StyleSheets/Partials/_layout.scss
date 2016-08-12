@@ -1,0 +1,134 @@
+﻿@import "_variables.scss";
+
+// Styles
+
+@mixin layout-styles($text-direction-start, $text-direction-end) {
+    #layout-wrapper {
+        display: flex;
+        display: -ms-flexbox;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        min-height: 100vh;
+
+        header {
+            section:first-child {
+                background-color: scale-color($reveal-red, $lightness: -10%);
+                display: flex;
+                display: -ms-flexbox;
+                justify-content: space-between;
+                -ms-flex-pack: justify;
+
+                img {
+                    padding: 15px;
+                    width: 200px;
+                }
+
+                ul {
+                    display: flex;
+                    display: -ms-flexbox;
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        display: -ms-flexbox;
+
+                        & + li {
+                            border-#{$text-direction-start}: 1px solid scale-color($reveal-red, $lightness: -30%);
+                        }
+
+                        a {
+                            align-items: center;
+                            -ms-flex-align: center;
+                            color: #ffffff;
+                            display: flex;
+                            display: -ms-flexbox;
+                            padding: 0 20px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                        }
+
+                        &:first-child {
+                            a {
+                                &::before {
+                                    background-image: url("../Images/user-white.svg");
+                                    content: "";
+                                    display: block;
+                                    height: 20px;
+                                    margin-#{$text-direction-end}: 5px;
+                                    width: 20px;
+                                }
+
+                                span {
+                                    background-color: $reveal-yellow;
+                                    border-radius: 100vh;
+                                    color: #000000;
+                                    margin-#{$text-direction-start}: 5px;
+                                    padding: 0 7px;
+                                    vertical-align: middle;
+                            
+                                    &:empty {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            section:last-child {
+                background-color: scale-color(#000000, $lightness: 20%);
+                padding: 20px;
+            }
+        }
+
+        main {
+            display: flex;
+            display: -ms-flexbox;
+            flex: 1;
+            -ms-flex: 1;
+            flex-direction: column;
+            -ms-flex-direction: column;
+
+            #page-wrapper {
+                background-color: scale-color(#000000, $lightness: 90%);
+                box-shadow: inset 0px 3px 0px 0px rgba(#000000, 0.2), inset 0px -3px 0px 0px rgba(#000000, 0.2);
+                display: flex;
+                display: -ms-flexbox;
+                flex: 1;
+                -ms-flex: 1;
+
+                #page {
+                    margin: 20px auto;
+                    max-width: 1500px;
+                    width: 100%;
+                }
+            }
+        }
+
+        footer {
+            background-color: scale-color(#000000, $lightness: 20%);
+            color: scale-color(#ffffff, $lightness: -20%);
+            display: flex;
+            display: -ms-flexbox;
+            font-size: 1.2rem;
+            padding: 10px;
+
+            span {
+                flex: 1;
+                -ms-flex: 1;
+                text-align: center;
+
+                &:first-child {
+                    text-align: left;
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

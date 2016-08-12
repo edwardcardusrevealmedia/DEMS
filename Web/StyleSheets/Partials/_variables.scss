@@ -1,0 +1,19 @@
+﻿// Viewport width breakpoints
+
+$viewport-width-breakpoint-large: 1024px;
+$viewport-width-breakpoint-medium: 720px;
+$viewport-width-breakpoint-small: 320px;
+
+// Colours
+
+$reveal-red: #e30513;
+$reveal-blue: #0047ba;
+$reveal-yellow: #efe52f;
+
+// Properties
+
+$border-radius: 2px;
+$main-element-box-shadow: 1px 1px 0px 0px rgba(#000000, 0.2);
+$checkbox-width: 60px;
+$checkbox-border-width: calc(#{$checkbox-width} / 12.5);
+$checkbox-padding-width: calc(#{$checkbox-width} / 25);
