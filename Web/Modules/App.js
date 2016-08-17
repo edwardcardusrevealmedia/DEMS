@@ -38,3 +38,18 @@ app.directive("ngSection", function($compile, $rootScope) {
         }
     };
 })
+
+//app.directive("ngShowOnScroll", function ($window) {
+//    return {
+//        restrict: "A",
+//        link: function (scope, element, attributes) {
+//            angular.element($window).bind("scroll", function () {
+//                if (this.pageYOffset > 0) {
+//                    element.showContent = true;
+//                } else {
+//                    element.showContent = false;
+//                }
+//            });
+//        }
+//    }
+//})

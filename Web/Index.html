@@ -27,11 +27,18 @@
                 </section>
                 <section id="secondary-header" ng-placeholder="secondaryHeader"></section>
             </header>
-            <main ng-view></main>
+            <main>
+                <div id="page-wrapper" ng-view>
+                </div>
+            </main>
             <footer>
-                <span>&copy; 2016 Reveal Media Ltd.</span>
+                <span>
+                    <span>Privacy Policy</span>
+                    <span>Help</span>
+                </span>
                 <span>Version 4.5</span>
-                <span>Privacy Policy</span>
+                <img src="Images/reveal-logo.svg"/>
+                <span>&copy; 2016 Reveal Media Ltd.</span>
             </footer>
         </div>
     </body>

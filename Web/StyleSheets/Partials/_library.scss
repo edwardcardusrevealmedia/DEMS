@@ -80,6 +80,13 @@
         & + div {
             margin-top: 10px;
             text-align: center;
+
+            #back-to-top-button {
+                border: 1px solid #ffffff;
+                bottom: 10px;
+                position: fixed;
+                right: 10px;
+            }
         }
     }
 }

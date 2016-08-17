@@ -131,18 +131,43 @@
             }
         }
 
-        .message-information, message-error {
-            background-color: scale-color($reveal-red, $lightness: 50%);
+        .message-information, .message-error {
+            box-shadow: $main-element-box-shadow;
+            display: flex;
+            display: -ms-flexbox;
+
+            &.message-information {
+                background-color: scale-color($reveal-yellow, $lightness: 75%);
+            }
+
+            &.message-error {
+                background-color: scale-color($reveal-red, $lightness: 75%);
+            }
 
             &::before {
-                background-color: $reveal-red;
-                background-image: url("../../Images/message-icon-error.svg");
-                background-position: top;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 30px;
                 content: "";
                 display: inline-block;
-                height: 100%;
                 min-height: 50px;
                 width: 50px;
+            }
+
+            &.message-information::before {
+                background-color: scale-color($reveal-yellow, $lightness: 25%);
+                background-image: url("../../Images/message-icon-information.svg");
+                border-right: 1px solid scale-color($reveal-yellow, $lightness: -25%);
+            }
+
+            &.message-error::before {
+                background-color: scale-color($reveal-red, $lightness: 50%);
+                background-image: url("../../Images/message-icon-error.svg");
+                border-right: 1px solid $reveal-red;
+            }
+
+            div {
+                padding: 20px;
             }
         }
 

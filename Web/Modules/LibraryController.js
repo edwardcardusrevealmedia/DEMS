@@ -31,29 +31,37 @@
         $scope.teams = returnValue;
     });
 
-    $scope.page = 1;
-    $scope.pageSize = 10;
-    $scope.performingSearch = false;
-
-
-    angular.element($window).bind("scroll", function (event) {
-        if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-            $scope.showMore();
-            $scope.show
-        }
-    });
-
     $scope.showMore = function () {
         $scope.page++;
         $scope.performingSearch = true;
 
         dems.performSearch($http, "", "", $scope.page, $scope.pageSize, "UploadDateTime", "DESC").then(function (returnValue) {
-            $scope.records = $scope.records.concat(returnValue);
+            $scope.records = $scope.records.concat(returnValue.Results);
             $scope.performingSearch = false;
         });
     }
 
-    dems.performSearch($http, "", "", 1, 5, "UploadDateTime", "DESC").then(function (returnValue) {
-        $scope.records = returnValue;
+    $scope.backToTop = function () {
+        if ($scope.windowScrolledVertically) {
+            scrollTo(scrollX, scrollY * 0.75)
+            setTimeout($scope.backToTop, 10);
+        }
+    }
+
+    $scope.page = 1;
+    $scope.pageSize = 20;
+    $scope.totalRecords = 0;
+    $scope.performingSearch = false;
+    $scope.windowScrolledVertically = scrollY > 0;
+
+    angular.element($window).bind("scroll", function () {
+        // window.scrollY + window.innerHeight >= document.body.scrollHeight
+        $scope.windowScrolledVertically = scrollY > 0;
+        $scope.$apply();
+    });
+
+    dems.performSearch($http, "", "", $scope.page, $scope.pageSize, "UploadDateTime", "DESC").then(function (returnValue) {
+        $scope.totalRecords = returnValue.NumberOfRecords;
+        $scope.records = returnValue.Results;
     });
 });

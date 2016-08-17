@@ -73,6 +73,7 @@
     <Content Include="Images\user-black.svg" />
     <Content Include="Images\user-white.svg" />
     <Content Include="packages.config" />
+    <Content Include="RecordList.html" />
     <Content Include="StyleSheets\main.scss" />
     <Content Include="StyleSheets\Partials\_variables.scss" />
     <None Include="compilerconfig.json" />
@@ -85,6 +86,7 @@
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <Content Include="StyleSheets\Partials\_cross-browser.scss" />
     <Content Include="StyleSheets\Partials\_layout.scss" />
+    <Content Include="StyleSheets\Partials\_home.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
