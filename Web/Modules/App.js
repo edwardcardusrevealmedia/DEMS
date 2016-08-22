@@ -13,7 +13,7 @@ app.config(["$routeProvider", function($routeProvider) {
     });
 }]);
 
-app.directive("ngPlaceholder", function($rootScope) {
+app.directive("dwPlaceholder", function($rootScope) {
     return { 
         restrict: "A",
         link: function (scope, element, attributes) {
@@ -26,7 +26,7 @@ app.directive("ngPlaceholder", function($rootScope) {
     };
 })
 
-app.directive("ngSection", function($compile, $rootScope) {
+app.directive("dwSection", function($compile, $rootScope) {
     return {
         restrict: "A",
         link: function (scope, element, attributes) {

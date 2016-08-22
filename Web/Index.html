@@ -7,7 +7,11 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
         <script src="Modules/App.js"></script>
-        <script src="Modules/Service.js"></script>
+        <script src="Modules/MediaCategoryFactories.js"></script>
+        <script src="Modules/RecordFactories.js"></script>
+        <script src="Modules/RetentionPolicyFactories.js"></script>
+        <script src="Modules/TeamFactories.js"></script>
+        <script src="Modules/RecordDirectives.js"></script>
         <script src="Modules/LayoutController.js"></script>
         <script src="Modules/HomeController.js"></script>
         <script src="Modules/LibraryController.js"></script>
@@ -15,31 +19,34 @@
         <link href="StyleSheets/main.min.css" rel="stylesheet" />
     </head>
     <body ng-app="app" ng-controller="layoutController">
-        <div id="layout-wrapper">
-            <header>
-                <section id="primary-header">
-                    <img src="Images/logo-login.svg" />
-                    <ul>
-                        <li><a href="/#/Home">Edward<span>12</span></a></li>
-                        <li><a href="/#/Library">Library</a></li>
-                        <li><a href="/#/">Logout</a></li>
-                    </ul>
-                </section>
-                <section id="secondary-header" ng-placeholder="secondaryHeader"></section>
-            </header>
-            <main>
-                <div id="page-wrapper" ng-view>
-                </div>
-            </main>
-            <footer>
-                <span>
-                    <span>Privacy Policy</span>
-                    <span>Help</span>
-                </span>
-                <span>Version 4.5</span>
-                <img src="Images/reveal-logo.svg"/>
-                <span>&copy; 2016 Reveal Media Ltd.</span>
-            </footer>
+        <div id="layout-outer-wrapper">
+            <div id="layout-wrapper">
+                <header>
+                    <section id="primary-header">
+                        <img src="Images/logo-login.svg" />
+                        <ul>
+                            <li><a href="/#/Home">Edward<span>12</span></a></li>
+                            <li><a href="/#/Library">Library</a></li>
+                            <li><a href="/#/">Logout</a></li>
+                        </ul>
+                    </section>
+                    <section id="secondary-header" dw-placeholder="secondaryHeader"></section>
+                </header>
+                <main>
+                    <div id="page-wrapper" ng-view>
+                    </div>
+                </main>
+                <footer>
+                    <span>
+                        <span>Privacy Policy</span>
+                        <span>Help</span>
+                    </span>
+                    <span>Version 4.5</span>
+                    <img src="Images/reveal-logo.svg" />
+                    <span>&copy; 2016 Reveal Media Ltd.</span>
+                </footer>
+            </div>
+            <div id="push-menu-wrapper"></div>
         </div>
     </body>
 </html>

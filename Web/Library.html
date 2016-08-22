@@ -1,5 +1,5 @@
-﻿<script ng-section="secondaryHeader" type="text/ng-template">
-    <select ng-show-on-scroll>
+﻿<script dw-section="secondaryHeader" type="text/ng-template">
+    <select>
         <option value="">All</option>
         <option ng-repeat="retentionPolicy in retentionPolicies" value="retentionPolicy.RetentionPolicyID">{{retentionPolicy.RetentionPolicyName}}</option>
     </select>
@@ -13,11 +13,9 @@
     </select>
 </script>
 <div ng-show="criticalError == null">
-    <div ng-include="'RecordList.html'"></div>
-    <div ng-show="records.length"><button ng-hide="performingSearch" ng-click="showMore()" class="red">Show more</button><span ng-show="performingSearch" class="spinner"></span><button id="back-to-top-button" ng-show="windowScrolledVertically" ng-click="backToTop()">Back to top</button></div>
-    <div ng-hide="records.length" class="message-information"><div>No records were found.</div></div>
-    <br />
-    <div ng-hide="records.length" class="message-error"><div>No records were found.</div></div>
+    <section class="content-box">
+        <dw-record-list dw-page-size="10" dw-title="Results"></dw-record-list>
+    </section>
 </div>
 <div ng-hide="criticalError == null" class="message-error">
     <div>{{criticalError.message}} [<span ng-click="criticalError.showDetails = !criticalError.showDetails"><span ng-hide="criticalError.showDetails">View details</span><span ng-show="criticalError.showDetails">Hide details</span></span>]</div>

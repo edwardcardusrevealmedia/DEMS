@@ -1,46 +1,51 @@
-﻿<ul id="results" ng-show="records.length">
-    <li ng-repeat="record in records" ng-click="Record">
-        <div>
-            <img src="Images/thumbnail.jpg" />
-            <span>{{record.Duration}}</span>
-        </div>
-        <div>
-            <span>{{record.IncidentId}}</span>
-            <span>{{record.Notes}}</span>
-            <ul>
-                <li>
-                    <span>Type:</span>
-                    <span>{{record.AssetType}}</span>
-                </li>
-                <li>
-                    <span>Recorded Date:</span>
-                    <span>{{record.RecordedDate}}</span>
-                </li>
-                <li>
-                    <span>Source Device:</span>
-                    <span>{{record.Source}}</span>
-                </li>
-                <li>
-                    <span>User:</span>
-                    <span>{{record.UserId}}</span>
-                </li>
-                <li>
-                    <span>Location:</span>
-                    <span>{{record.Location}}</span>
-                </li>
-                <li>
-                    <span>Retention Policy:</span>
-                    <span>{{record.RetentionPolicy}}</span>
-                </li>
-                <li>
-                    <span>Media Category:</span>
-                    <span>{{record.MediaCategory}}</span>
-                </li>
-                <li>
-                    <span>Team:</span>
-                    <span>{{record.Team}}</span>
-                </li>
-            </ul>
-        </div>
-    </li>
-</ul>
+﻿<div id="record-list">
+    <h2>{{title}}<span ng-show="records.length"> ({{recordCount}})</span></h2>
+    <ul ng-show="records.length">
+        <li ng-repeat="record in records" ng-click="Record">
+            <div>
+                <img src="Images/thumbnail.jpg" />
+                <span>{{record.Duration}}</span>
+            </div>
+            <div>
+                <span>{{record.IncidentId}}</span>
+                <span>{{record.Notes}}</span>
+                <ul>
+                    <li>
+                        <span>Type:</span>
+                        <span>{{record.AssetType}}</span>
+                    </li>
+                    <li>
+                        <span>Recorded Date:</span>
+                        <span>{{record.RecordedDate}}</span>
+                    </li>
+                    <li>
+                        <span>Source Device:</span>
+                        <span>{{record.Source}}</span>
+                    </li>
+                    <li>
+                        <span>User:</span>
+                        <span>{{record.UserId}}</span>
+                    </li>
+                    <li>
+                        <span>Location:</span>
+                        <span>{{record.Location}}</span>
+                    </li>
+                    <li>
+                        <span>Retention Policy:</span>
+                        <span>{{record.RetentionPolicy}}</span>
+                    </li>
+                    <li>
+                        <span>Media Category:</span>
+                        <span>{{record.MediaCategory}}</span>
+                    </li>
+                    <li>
+                        <span>Team:</span>
+                        <span>{{record.Team}}</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div ng-show="records.length"><button ng-hide="performingSearch || records.length == recordCount" ng-click="loadRecords()"></button><span ng-show="performingSearch" class="spinner"></span><button id="back-to-top-button" ng-show="windowScrolledVertically" ng-click="backToTop()">Back to top</button></div>
+    <div ng-hide="records.length">No records were found.</div>
+</div>

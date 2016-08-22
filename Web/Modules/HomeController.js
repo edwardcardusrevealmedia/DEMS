@@ -1,3 +1,1 @@
-﻿app.controller("homeController", function ($scope, $http) {
-    $scope.title = "Home";
-});
+﻿app.controller("homeController", function ($scope, $http) { });

@@ -3,6 +3,43 @@
 // Styles
 
 @mixin home-styles($text-direction-start, $text-direction-end) {
-    #results {
+    #home-content {
+        display: flex;
+        display: -ms-flexbox;
+        align-items: flex-start;
+        -ms-flex-align:start;
+
+        > #user {
+            flex: 1;
+            -ms-flex: 1;
+
+            > img {
+                background-color: scale-color(#000000, $lightness: 80%);
+                box-sizing: border-box;
+                padding: 2rem;
+                width: 100%;
+            }
+
+            > table {
+                margin-top: 2rem;
+
+                > tbody > tr {
+                    border: 0.1rem solid red;
+                    > th {
+                        text-align: left;
+                        text-transform: uppercase;
+                    }
+                }
+
+                > tbody > tr + tr {
+                    border-top: 0.1rem solid red;
+                }
+            }
+        }
+
+        > div {
+            flex: 3;
+            -ms-flex: 3;
+        }
     }
 }

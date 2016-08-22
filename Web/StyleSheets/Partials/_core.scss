@@ -107,8 +107,7 @@
             }
         }
 
-        button {
-            background-color: #000000;
+        button.black, button.red {
             border: none;
             border-radius: 2px;
             color: #ffffff;
@@ -118,8 +117,12 @@
             padding: 10px;
             text-transform: uppercase;
 
-            &:hover {
-                background-color: scale-color(#000000, $lightness: 20%);
+            &.black {
+                background-color: #000000;
+
+                &:hover {
+                    background-color: scale-color(#000000, $lightness: 20%);
+                }
             }
 
             &.red {
@@ -177,13 +180,21 @@
  
         .spinner {
             animation: spinner 1s ease infinite;
-            border-color: #000000 transparent;
+            border-color: scale-color(#000000, $lightness: 80%) transparent;
             border-radius: 50%;
             border-style: solid;
-            border-width: 3px;
+            border-width: 2px;
+            box-sizing: border-box;
             display: inline-block;
             height: 20px;
             width: 20px;
+        }
+
+        .content-box {
+            background-color: #ffffff;
+            box-shadow: $main-element-box-shadow;
+            margin: 1rem;
+            padding: 2rem;
         }
 
         /*input[type=checkbox] {

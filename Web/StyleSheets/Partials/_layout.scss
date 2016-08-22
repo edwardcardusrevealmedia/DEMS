@@ -3,139 +3,158 @@
 // Styles
 
 @mixin layout-styles($text-direction-start, $text-direction-end) {
-    #layout-wrapper {
+    #layout-outer-wrapper {
         display: flex;
         display: -ms-flexbox;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        min-height: 100vh;
 
-        header {
-            section:first-child {
-                background-color: scale-color($reveal-red, $lightness: -10%);
-                display: flex;
-                display: -ms-flexbox;
-                justify-content: space-between;
-                -ms-flex-pack: justify;
+        #layout-wrapper {
+            display: flex;
+            display: -ms-flexbox;
+            flex: 1;
+            -ms-flex: 1;
+            flex-direction: column;
+            -ms-flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            #{$text-direction-end}: 0;
 
-                img {
-                    padding: 15px;
-                    width: 200px;
-                }
-
-                ul {
+            header {
+                section:first-child {
+                    background-color: scale-color($reveal-red, $lightness: -10%);
                     display: flex;
                     display: -ms-flexbox;
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
+                    justify-content: space-between;
+                    -ms-flex-pack: justify;
 
-                    li {
+                    img {
+                        padding: 15px;
+                        width: 200px;
+                    }
+
+                    ul {
                         display: flex;
                         display: -ms-flexbox;
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
 
-                        & + li {
-                            border-#{$text-direction-start}: 1px solid scale-color($reveal-red, $lightness: -30%);
-                        }
-
-                        a {
-                            align-items: center;
-                            -ms-flex-align: center;
-                            color: #ffffff;
+                        li {
                             display: flex;
                             display: -ms-flexbox;
-                            padding: 0 20px;
-                            text-decoration: none;
-                            text-transform: uppercase;
-                        }
 
-                        &:first-child {
+                            & + li {
+                                border-#{$text-direction-start}: 1px solid scale-color($reveal-red, $lightness: -30%);
+                            }
+
                             a {
-                                &::before {
-                                    background-image: url("../Images/user-white.svg");
-                                    content: "";
-                                    display: block;
-                                    height: 20px;
-                                    margin-#{$text-direction-end}: 5px;
-                                    width: 20px;
-                                }
+                                align-items: center;
+                                -ms-flex-align: center;
+                                color: #ffffff;
+                                display: flex;
+                                display: -ms-flexbox;
+                                padding: 0 20px;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                            }
 
-                                span {
-                                    background-color: $reveal-yellow;
-                                    border-radius: 100vh;
-                                    color: #000000;
-                                    margin-#{$text-direction-start}: 5px;
-                                    padding: 0 7px;
-                                    vertical-align: middle;
+                            &:first-child {
+                                a {
+                                    &::before {
+                                        background-image: url("../Images/user-white.svg");
+                                        content: "";
+                                        display: block;
+                                        height: 20px;
+                                        margin-#{$text-direction-end}: 5px;
+                                        width: 20px;
+                                    }
+
+                                    span {
+                                        background-color: $reveal-yellow;
+                                        border-radius: 100vh;
+                                        color: #000000;
+                                        margin-#{$text-direction-start}: 5px;
+                                        padding: 0 7px;
+                                        vertical-align: middle;
                             
-                                    &:empty {
-                                        display: none;
+                                        &:empty {
+                                            display: none;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+
+                section:last-child {
+                    background-color: scale-color(#000000, $lightness: 20%);
+                    padding: 20px;
+                }
             }
 
-            section:last-child {
+            main {
+                background-color: scale-color(#000000, $lightness: 90%);
+                box-shadow: inset 0px 3px 0px 0px rgba(#000000, 0.2), inset 0px -3px 0px 0px rgba(#000000, 0.2);
+                display: flex;
+                display: -ms-flexbox;
+                flex: 1;
+                -ms-flex: 1;
+
+                #page-wrapper {
+                    margin: 10px auto;
+                    max-width: 1500px;
+                    width: 100%;
+                }
+            }
+
+            footer {
                 background-color: scale-color(#000000, $lightness: 20%);
-                padding: 20px;
+                color: scale-color(#ffffff, $lightness: -25%);
+                display: flex;
+                display: -ms-flexbox;
+                flex-direction: column;
+                -ms-flex-direction: column;
+                align-items: center;
+                -ms-flex-align: center;
+                font-size: 1.2rem;
+                padding: 10px;
+
+                > * {
+                    margin: 10px;
+                }
+
+                > span:first-child {
+                    > span {
+                        text-transform: uppercase;
+                    }
+
+                    > span:last-child {
+                        margin-left: 10px;
+                    }
+                }
+
+                > span:nth-child(2) {
+                    background-color: scale-color(#ffffff, $lightness: -25%);
+                    border-radius: 100vh;
+                    color: scale-color(#000000, $lightness: 20%);
+                    margin-#{$text-direction-start}: 5px;
+                    padding: 0 7px;
+                }
+
+                > img {
+                    display: none;
+                    width: 100px;
+                }
             }
         }
 
-        main {
-            background-color: scale-color(#000000, $lightness: 90%);
-            box-shadow: inset 0px 3px 0px 0px rgba(#000000, 0.2), inset 0px -3px 0px 0px rgba(#000000, 0.2);
-            display: flex;
-            display: -ms-flexbox;
-            flex: 1;
-            -ms-flex: 1;
-
-            #page-wrapper {
-                margin: 20px auto;
-                max-width: 1500px;
-                width: 100%;
-            }
-        }
-
-        footer {
+        #push-menu-wrapper {
             background-color: scale-color(#000000, $lightness: 20%);
-            color: scale-color(#ffffff, $lightness: -25%);
-            display: flex;
-            display: -ms-flexbox;
-            flex-direction: column;
-            -ms-flex-direction: column;
-            align-items: center;
-            -ms-flex-align: center;
-            font-size: 1.2rem;
-            padding: 10px;
-
-            > * {
-                margin: 10px;
-            }
-
-            > span:first-child {
-                > span {
-                    text-transform: uppercase;
-                }
-
-                > span:last-child {
-                    margin-left: 10px;
-                }
-            }
-
-            > span:nth-child(2) {
-                background-color: scale-color(#ffffff, $lightness: -25%);
-                border-radius: 100vh;
-                color: scale-color(#000000, $lightness: 20%);
-                margin-#{$text-direction-start}: 5px;
-                padding: 0 7px;
-            }
-
-            > img {
-                width: 100px;
-            }
+            min-height: 100%;
+            overflow: hidden;
+            position: absolute;
+            #{$text-direction-end}: 0;
+            width: 0;
         }
     }
 }

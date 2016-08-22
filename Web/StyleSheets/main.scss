@@ -1,13 +1,17 @@
 ﻿@import "Partials/_core.scss";
 @import "Partials/_login.scss";
 @import "Partials/_layout.scss";
+@import "Partials/_home.scss";
 @import "Partials/_library.scss";
+@import "Partials/_record-list.scss";
 
 @mixin styles($text-direction-start, $text-direction-end) {
     @include core-styles($text-direction-start, $text-direction-end);
     @include login-styles($text-direction-start, $text-direction-end);
     @include layout-styles($text-direction-start, $text-direction-end);
+    @include home-styles($text-direction-start, $text-direction-end);
     @include library-styles($text-direction-start, $text-direction-end);
+    @include record-list-styles($text-direction-start, $text-direction-end);
 }
 
 html:not([dir=rtl]) {

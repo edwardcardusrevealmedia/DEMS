@@ -68,12 +68,21 @@
   <ItemGroup>
     <Content Include="Images\message-icon-error.svg" />
     <Content Include="Images\message-icon-information.svg" />
+    <Content Include="Images\reveal-logo.svg" />
     <Content Include="Images\select-record-arrow.svg" />
+    <Content Include="Images\show-more-arrow.svg" />
     <Content Include="Images\thumbnail.jpg" />
     <Content Include="Images\user-black.svg" />
+    <Content Include="Images\user-grey.svg" />
     <Content Include="Images\user-white.svg" />
+    <Content Include="Modules\MediaCategoryFactories.js" />
+    <Content Include="Modules\PushMenuDirectives.js" />
+    <Content Include="Modules\RecordDirectives.js" />
+    <Content Include="Modules\RecordFactories.js" />
+    <Content Include="Modules\TeamFactories.js" />
+    <Content Include="Modules\RetentionPolicyFactories.js" />
     <Content Include="packages.config" />
-    <Content Include="RecordList.html" />
+    <Content Include="Partials\RecordList.html" />
     <Content Include="StyleSheets\main.scss" />
     <Content Include="StyleSheets\Partials\_variables.scss" />
     <None Include="compilerconfig.json" />
@@ -87,6 +96,7 @@
     <Content Include="StyleSheets\Partials\_cross-browser.scss" />
     <Content Include="StyleSheets\Partials\_layout.scss" />
     <Content Include="StyleSheets\Partials\_home.scss" />
+    <Content Include="StyleSheets\Partials\_record-list.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,7 +120,6 @@
     <Content Include="Modules\App.js" />
     <Content Include="Modules\HomeController.js" />
     <Content Include="Modules\LayoutController.js" />
-    <Content Include="Modules\Service.js" />
     <Content Include="StyleSheets\main.css">
       <DependentUpon>main.scss</DependentUpon>
     </Content>

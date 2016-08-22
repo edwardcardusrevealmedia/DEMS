@@ -1,22 +1,26 @@
 ﻿<script ng-section="secondaryHeader" type="text/ng-template">
 
 </script>
-<section>
-    <img src="Images/user-black.svg" />
-    <table>
-        <tr>
-            <th>User ID</th>
-            <td>edward</td>
-        </tr>
-        <tr>
-            <th>Last logged in</th>
-            <td>12/08/2016 16:35:56</td>
-        </tr>
-    </table>
-</section>
-<section>
-    <ul>
-        <li>Record 1</li>
-        <li>Record 2</li>
-    </ul>
-</section>
+<div id="home-content">
+    <section id="user" class="content-box">
+        <img src="Images/user-grey.svg" />
+        <table>
+            <tr>
+                <th>User ID:</th>
+                <td>edward</td>
+            </tr>
+            <tr>
+                <th>Last logged in:</th>
+                <td>12/08/2016 16:35:56</td>
+            </tr>
+        </table>
+    </section>
+    <div>
+        <section class="content-box">
+            <dw-record-list dw-page-size="2" dw-title="My Notfications"></dw-record-list>
+        </section>
+        <section class="content-box">
+            <dw-record-list dw-page-size="2" dw-title="My Records"></dw-record-list>
+        </section>
+    </div>
+</div>
